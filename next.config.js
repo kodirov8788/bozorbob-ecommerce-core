@@ -1,20 +1,14 @@
 module.exports = {
   env: {
-    // BASE_URL: "https://www.bozorbob.uz/",
-    // BASE_URL: "https://bozorbob-uz-original.vercel.app/",
-    // git config --global http.version HTTP/1.1
-
-    BASE_URL: "http://localhost:3000/",
-    MONGODB_URL:
-      "mongodb+srv://next123:next123@cluster0.wn8mt.mongodb.net/?retryWrites=true&w=majority",
-    REFRESH_TOKEN_SECRET:
-      "su8W6Trd~%R8fyZGE,+_>>Kwld#j%rk<6x[ue3Gv!%pwJB!{Kn]:Q9e-LhpwV4v-C,K:hSgv^(;<?RW3'ckMC2#~S5;aNN}KfWh",
-    ACCESS_TOKEN_SECRET: "su8W6Trd~%R8fyZGE,+_>>Kwld#j%rk<6xadsdassss[ue3Gv!%pwJB!{Kn]:Q9e-LhpwV4v-C,K:hSgv^(;<?RW3'ckMC2#~S5;aNN}KfWh",
-    CLOUD_UPDATE_PRESET: "goodle_nextjs",
-    CLOUD_UPDATE_PRESETVIDEOS: "goodle_nextjs__videos",
-    CLOUD_NAME: "goodle-next",
-    CLOUD_API: "https://api.cloudinary.com/v1_1/goodle/image/upload",
-    YOUTUBE__API__KEY: "AIzaSyBKSBW816sp8gUnYi-bQFbNqszB0TtRgy4",
+    BASE_URL: process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000",
+    CLOUD_UPDATE_PRESET: process.env.NEXT_PUBLIC_CLOUD_UPLOAD_PRESET || "",
+    CLOUD_UPDATE_PRESETVIDEOS:
+      process.env.NEXT_PUBLIC_CLOUD_VIDEO_UPLOAD_PRESET || "",
+    CLOUD_NAME: process.env.NEXT_PUBLIC_CLOUD_NAME || "",
+    CLOUD_API:
+      process.env.NEXT_PUBLIC_CLOUD_API ||
+      "https://api.cloudinary.com/v1_1/demo/image/upload",
+    YOUTUBE__API__KEY: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY || "",
   },
   i18n: {
     locales: ["en", "uz"],

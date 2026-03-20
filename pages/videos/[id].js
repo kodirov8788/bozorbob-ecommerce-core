@@ -11,7 +11,6 @@ const Videos = () => {
   const { orders, auth } = state;
   const router = useRouter();
   const [dataVideo, setDataVideo] = useState([]);
-  console.log("dataVideo >>>", dataVideo)
   const [video, setVideo] = useState();
 
   useEffect(() => {
@@ -36,16 +35,18 @@ const Videos = () => {
     const newArr4 = newArr2[0]?.videoModule[0]
     const newArr5 = newArr3?.video_1 !== "" ? newArr3 : newArr4
     setVideo(newArr5)
-    setVideoTitle(newArr2.title)
+    setVideoTitle(newArr2[0]?.title)
 
-  }, [dataVideo]);
-  // console.log("video >>>", video);
+  }, [dataVideo, router.query.id]);
 
   const [tab, setTab] = useState(0);
   const [videoTitle, setVideoTitle] = useState();
-  console.log("videoTitle >>>", videoTitle);
   const [videos, setVideos] = useState([]);
   useEffect(() => {
+    if (!video) {
+      setVideos([]);
+      return;
+    }
     let arr = []
     for (let key in video) {
       arr.push(video[key])
@@ -53,7 +54,6 @@ const Videos = () => {
     const arr2 = arr.filter(item => item !== "")
     return setVideos(arr2)
   }, [video])
-  console.log("videos >>>", videos)
   const isActive = (index) => {
     if (tab === index) return " videoActive";
     return "";
@@ -63,8 +63,13 @@ const Videos = () => {
   const [selectWidth, setSelectWidth] = useState("250px");
   const [selectHeight, setSelectHeight] = useState("142px");
   useEffect(() => {
-    window.screen.width <= 760 && setWidth("350px") + setHeight("200px") + setSelectWidth("200px") + setSelectHeight("100px")
-  }, [window.screen.width]);
+    if (typeof window !== "undefined" && window.screen.width <= 760) {
+      setWidth("350px");
+      setHeight("200px");
+      setSelectWidth("200px");
+      setSelectHeight("100px");
+    }
+  }, []);
 
   return (
     <>
