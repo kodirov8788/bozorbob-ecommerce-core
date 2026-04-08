@@ -14,6 +14,9 @@ import { BiLinkExternal } from "react-icons/bi"
 import { MdOutlineVideoLibrary } from "react-icons/md"
 import { imageUpload } from "../utils/imageUpload";
 import { FiDownload } from "react-icons/fi"
+import en from "../locales/en";
+import uz from "../locales/uz";
+import { useRouter } from "next/router";
 const Profile = () => {
   const initialSate = {
     avatar: "",
@@ -149,16 +152,19 @@ const Profile = () => {
       return dispatch({ type: "NOTIFY", payload: { success: res.msg } });
     });
   };
+  const { locale } = useRouter();
+  const t = locale === "en" ? en : uz;
+
   if (!auth.user) return null;
   return (
     <div className="profile__page">
       <Head>
-        <title>Profile</title>
+        <title>{t.profile}</title>
       </Head>
       <section className="row text-secondary my-2 mt-2">
         <div className="col-md-4">
           <h3 className="text-center text-uppercase">
-            {auth.user.role === "user" ? "User Profile" : "Admin Profile"}
+            {auth.user.role === "user" ? t.user_profile : t.admin_profile}
           </h3>
 
           <div className="avatar">
@@ -168,7 +174,7 @@ const Profile = () => {
             />
             <span>
               <i className="fas fa-camera"></i>
-              <p>Change</p>
+              <p>{t.edit}</p>
               <input
                 type="file"
                 name="file"
@@ -180,19 +186,19 @@ const Profile = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">{t.Name}</label>
             <input
               type="text"
               name="name"
               value={name}
               className="form-control"
-              placeholder="Your name"
+              placeholder={t.Name}
               onChange={handleChange}
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">{t.Email__address}</label>
             <input
               type="text"
               name="email"
@@ -203,25 +209,25 @@ const Profile = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="password">New Password</label>
+            <label htmlFor="password">{t.Password}</label>
             <input
               type="password"
               name="password"
               value={password}
               className="form-control"
-              placeholder="Your new password"
+              placeholder={t.Password}
               onChange={handleChange}
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="cf_password">Confirm New Password</label>
+            <label htmlFor="cf_password">{t.Confirm__Password}</label>
             <input
               type="password"
               name="cf_password"
               value={cf_password}
               className="form-control"
-              placeholder="Confirm new password"
+              placeholder={t.Confirm__Password}
               onChange={handleChange}
             />
           </div>
@@ -231,12 +237,12 @@ const Profile = () => {
             disabled={notify.loading}
             onClick={handleUpdateProfile}
           >
-            Update
+            {t.Register}
           </button>
         </div>
 
         <div className="col-md-8">
-          <h3 className="text-uppercase">Orders</h3>
+          <h3 className="text-uppercase">{t.orders}</h3>
 
           <div className="my-3 table-responsive">
             <table
@@ -245,11 +251,11 @@ const Profile = () => {
             >
               <thead className="bg-light font-weight-bold">
                 <tr>
-                  <td className="p-2">id</td>
-                  <td className="p-2">date</td>
-                  <td className="p-2">total</td>
-                  <td className="p-2">delivered</td>
-                  <td className="p-2">paid</td>
+                  <td className="p-2">{t.id}</td>
+                  <td className="p-2">{t.date}</td>
+                  <td className="p-2">{t.total}</td>
+                  <td className="p-2">{t.delivered}</td>
+                  <td className="p-2">{t.paid}</td>
                 </tr>
               </thead>
 
@@ -328,7 +334,7 @@ const Profile = () => {
             <>
               <li className="profile__listItem" key={index}>
                 <a href={book.book} target="_link">
-                  <span>Ko'rish va Tortish</span>
+                  <span>{t.view_and_download}</span>
                   <FiDownload />
                 </a>
               </li>

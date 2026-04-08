@@ -15,12 +15,12 @@ const Footer = () => {
           </li>
           <li>
             <Link href="/about/connect">
-              <a>How to connect us</a>
+              <a>Contact Us</a>
             </Link>
           </li>
           <li>
             <Link href="/about/delevery">
-              <a>Delevery</a>
+              <a>Delivery</a>
             </Link>
           </li>
           <li>
@@ -50,7 +50,7 @@ const Footer = () => {
           <h2>Support</h2>
           <li>
             <Link href="/about/blog">
-              <a>The blog</a>
+              <a>Blog</a>
             </Link>
           </li>
           <li>
@@ -60,7 +60,7 @@ const Footer = () => {
           </li>
           <li>
             <Link href="/about/ordertraking">
-              <a>The order traking</a>
+              <a>Order Tracking</a>
             </Link>
           </li>
           <li>

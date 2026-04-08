@@ -367,12 +367,12 @@ const ProductsManager = () => {
 
           {pdfInput ? (
             <div className="col-sm-6">
-              <label htmlFor="book's link">Book's link</label>
+              <label htmlFor="book&apos;s link">Book&apos;s link</label>
               <input
                 type="text"
                 name="book"
                 value={book}
-                placeholder="book's link"
+                placeholder="book&apos;s link"
                 className="d-block w-100 p-2"
                 onChange={handleChangeInput}
               />

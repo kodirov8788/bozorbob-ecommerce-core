@@ -3,6 +3,9 @@ import { useContext, useState } from "react";
 import { DataContext } from "../store/GlobalState";
 import { updateItem } from "../store/Actions";
 import { postData, putData } from "../utils/fetchData";
+import { useRouter } from "next/router";
+import en from "../locales/en";
+import uz from "../locales/uz";
 
 const Categories = () => {
   const [name, setName] = useState("");
@@ -11,18 +14,20 @@ const Categories = () => {
   const { categories, auth } = state;
 
   const [id, setId] = useState("");
+  const { locale } = useRouter();
+  const t = locale === "en" ? en : uz;
 
   const createCategory = async () => {
     if (auth.user.role !== "admin")
       return dispatch({
         type: "NOTIFY",
-        payload: { error: "Authentication is not vaild." },
+        payload: { error: t.auth_invalid },
       });
 
     if (!name)
       return dispatch({
         type: "NOTIFY",
-        payload: { error: "Name can not be left blank." },
+        payload: { error: t.name_blank },
       });
 
     dispatch({ type: "NOTIFY", payload: { loading: true } });
@@ -55,20 +60,20 @@ const Categories = () => {
   return (
     <div className="col-md-6 mx-auto my-3">
       <Head>
-        <title>Categories</title>
+        <title>{t.categories}</title>
       </Head>
 
       <div className="input-group mb-3">
         <input
           type="text"
           className="form-control"
-          placeholder="Add a new category"
+          placeholder={t.add_category}
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
 
         <button className="btn btn-secondary ml-1" onClick={createCategory}>
-          {id ? "Update" : "Create"}
+          {id ? t.update : t.create}
         </button>
       </div>
 

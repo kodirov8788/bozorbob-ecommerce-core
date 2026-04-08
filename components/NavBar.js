@@ -14,6 +14,7 @@ import en from "../locales/en";
 import uz from "../locales/uz";
 import LanguageSelect from "./LanguageSelect";
 import MediaLanguageSelect from "./MediaLanguageSelect";
+import CurrencySelect from "./CurrencySelect";
 function NavBar() {
 	const router = useRouter();
 	const { state, dispatch } = useContext(DataContext);
@@ -46,20 +47,20 @@ function NavBar() {
 		Cookie.remove("refreshtoken", { path: "api/auth/accessToken" });
 		localStorage.removeItem("firstLogin");
 		dispatch({ type: "AUTH", payload: {} });
-		dispatch({ type: "NOTIFY", payload: { success: "Logged out!" } });
+		dispatch({ type: "NOTIFY", payload: { success: t.logged_out } });
 		return router.push("/");
 	};
 	const adminRouter = () => {
 		return (
 			<>
 				<Link href="/users">
-					<a className="navbar__userlistItem">Users</a>
+					<a className="navbar__userlistItem">{t.users}</a>
 				</Link>
 				<Link href="/create">
-					<a className="navbar__userlistItem">Products</a>
+					<a className="navbar__userlistItem">{t.products}</a>
 				</Link>
 				<Link href="/categories">
-					<a className="navbar__userlistItem">Categories</a>
+					<a className="navbar__userlistItem">{t.categories}</a>
 				</Link>
 			</>
 		);
@@ -92,11 +93,11 @@ function NavBar() {
 						}`}
 				>
 					<Link href="/profile">
-						<a className="navbar__userlistItem">Profile</a>
+						<a className="navbar__userlistItem">{t.profile}</a>
 					</Link>
 					{auth.user.role === "admin" && adminRouter()}
 					<span className="navbar__userlistItem" onClick={handleLogout}>
-						Logout
+						{t.logout}
 					</span>
 				</div>
 			</div>
@@ -148,10 +149,11 @@ function NavBar() {
 					<a href="tel:+998939427899" className="nav__phone">
 						<b>(93) 942-78-99</b>
 					</a>
+					<LanguageSelect />
+					<CurrencySelect />
+					<MediaLanguageSelect />
 				</div>
 			</nav>
-			<LanguageSelect />
-			<MediaLanguageSelect />
 		</>
 	);
 }

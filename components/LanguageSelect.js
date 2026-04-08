@@ -4,9 +4,9 @@ import { useRouter } from "next/router";
 
 function LanguageSelect() {
   const router = useRouter();
-  const [lang, setLang] = useState("uz");
+  const [lang, setLang] = useState("en");
   const [langImg, setLangImg] = useState(
-    "https://cdn-icons-png.flaticon.com/512/206/206662.png"
+    "https://cdn-icons-png.flaticon.com/512/206/206626.png"
   );
 
   const language_items = [

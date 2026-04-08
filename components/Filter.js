@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import filterSearch from "../utils/filterSearch";
 import { useRouter } from "next/router";
 
-const Filter = () => {
+const Filter = ({ t }) => {
   const [sort, setSort] = useState("");
   const router = useRouter();
   const handleSort = (e) => {
@@ -18,11 +18,11 @@ const Filter = () => {
           value={sort}
           onChange={handleSort}
         >
-          <option value="-createdAt">Newest</option>
-          <option value="oldest">Oldest</option>
-          <option value="-sold">Best sales</option>
-          <option value="-price">Price: Hight-Low</option>
-          <option value="price">Price: Low-Hight</option>
+          <option value="-createdAt">{t.newest}</option>
+          <option value="oldest">{t.oldest}</option>
+          <option value="-sold">{t.best_sales}</option>
+          <option value="-price">{t.price_high_low}</option>
+          <option value="price">{t.price_low_high}</option>
         </select>
       </div>
     </div >

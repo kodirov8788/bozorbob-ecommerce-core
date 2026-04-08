@@ -1,18 +1,13 @@
 .LangugeSelect__headerLanguage {
   display: flex;
   align-items: center;
-  position: fixed;
-  right: -30px;
-  top: 5px;
-  padding: 10px 15px;
-  margin: 0px 40px;
+  padding: 5px 10px;
   user-select: none;
   cursor: pointer;
-  min-width: 100px;
-  width: 100px;
   white-space: nowrap;
   height: 40px;
-  z-index: 100;
+  z-index: 10;
+  margin-left: 15px;
 }
 
 .MediaLangugeSelect__headerLanguage {

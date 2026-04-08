@@ -1,16 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 :root {
-  --main-color: #f3ad45;
-  --main-transition: all 0.255s ease-out;
-  --test-border: 3px solid #c3c5f5;
+  --main-color: #E67E22;
+  --secondary-color: #2C3E50;
+  --bg-glass: rgba(255, 255, 255, 0.7);
+  --border-glass: rgba(255, 255, 255, 0.3);
+  --shadow-premium: 0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+  --main-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --test-border: 1px solid rgba(0,0,0,0.1);
 }
 
 html,
 body {
-  /* background-color: #f6f6f6; */
+  scroll-behavior: smooth;
+  background-color: #fafafa;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
+  color: #333;
 }
 
 a {

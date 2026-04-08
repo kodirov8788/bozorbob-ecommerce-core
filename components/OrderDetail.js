@@ -58,7 +58,7 @@ const OrderDetail = ({ orderDetail, state, dispatch }) => {
               <p>
                 {t.order_name} : {order.user.name}
               </p>
-              <p>Email: {order.user.email}</p>
+              <p>{t.email}: {order.user.email}</p>
               <p>
                 {t.address}: {order.address}
               </p>
@@ -165,7 +165,7 @@ const OrderDetail = ({ orderDetail, state, dispatch }) => {
                       src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/1024px-Telegram_logo.svg.png"
                       alt=""
                     />
-                    <h3>telegram:</h3>
+                    <h3>{t.telegram}:</h3>
                   </span>
                   <h4>
                     <Link href="#">@kodirovdev</Link>
@@ -177,7 +177,7 @@ const OrderDetail = ({ orderDetail, state, dispatch }) => {
                       src="http://svgcuts.com/fsvgfotw/2014/svgcuts-022314-retro-telephone.png"
                       alt=""
                     />
-                    <h3>Tel:</h3>
+                    <h3>{t.tel}:</h3>
                   </span>
                   <h4>
                     <Link href="+998939427899">(93)9427899</Link>

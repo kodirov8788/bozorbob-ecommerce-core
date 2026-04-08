@@ -20,10 +20,8 @@ const MediaCategory = () => {
   const t = locale === "en" ? en : uz;
   const [categoryId, setCategoryId] = useState("");
   useEffect(() => {
-    locale === "en"
-      ? setCategoryId("Category")
-      : setCategoryId("kategoriyalar")
-  }, [locale]);
+    setCategoryId(t.category);
+  }, [locale, t.category]);
 
   return (
     <div className="mediaCategory_container" >
