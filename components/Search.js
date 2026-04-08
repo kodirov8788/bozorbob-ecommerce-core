@@ -3,6 +3,8 @@ import { FiSearch } from "react-icons/fi";
 import { DataContext } from "../store/GlobalState";
 import filterSearch from "../utils/filterSearch";
 import { useRouter } from "next/router";
+import en from "../locales/en";
+import uz from "../locales/uz";
 
 const Search = () => {
   const { state, dispatch } = useContext(DataContext);
@@ -10,6 +12,8 @@ const Search = () => {
   // console.log("isSearchClick", isSearchClick);
 
   const router = useRouter();
+  const { locale } = router;
+  const t = locale === "en" ? en : uz;
   const [search, setSearch] = useState("");
   //   const { state, dispatch } = useContext(DataContext);
   useEffect(() => {
@@ -45,6 +49,7 @@ const Search = () => {
       <input
         type="text"
         list="title_product"
+        placeholder={t.search}
         value={search.toLowerCase()}
         onChange={(e) => setSearch(e.target.value)}
       />

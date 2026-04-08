@@ -11,7 +11,7 @@ import SwiperCore, {
 SwiperCore.use([EffectCoverflow, Pagination, Navigation, Autoplay]);
 import "swiper/css";
 
-function Banner() {
+function Banner({ t }) {
   return (
     <div className="main__banner">
       <Swiper
@@ -33,7 +33,7 @@ function Banner() {
           <Image
             // loader={myLoader}
             src="/essets/pexels.jpg"
-            alt="Picture of the author"
+            alt={t.home_page}
             width={1920}
             height={800}
             layout="responsive"
@@ -43,7 +43,7 @@ function Banner() {
           <Image
             // loader={myLoader}
             src="/essets/pexels-2.jpg"
-            alt="Picture of the author"
+            alt={t.home_page}
             width={1920}
             height={800}
             layout="responsive"
@@ -53,7 +53,7 @@ function Banner() {
           <Image
             // loader={myLoader}
             src="/essets/pexels-3.png"
-            alt="Picture of the author"
+            alt={t.home_page}
             width={1920}
             height={800}
             layout="responsive"
@@ -63,7 +63,7 @@ function Banner() {
           <Image
             // loader={myLoader}
             src="/essets/pexels-4.png"
-            alt="Picture of the author"
+            alt={t.home_page}
             width={1920}
             height={800}
             layout="responsive"
@@ -73,7 +73,7 @@ function Banner() {
           <Image
             // loader={myLoader}
             src="/essets/pexels-5.png"
-            alt="Picture of the author"
+            alt={t.home_page}
             width={1920}
             height={800}
             layout="responsive"

@@ -1,85 +1,256 @@
 "use strict";
-/*
- * ATTENTION: An "eval-source-map" devtool has been used.
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 (() => {
 var exports = {};
-exports.id = "pages/api/product";
-exports.ids = ["pages/api/product"];
+exports.id = 2759;
+exports.ids = [2759];
 exports.modules = {
 
-/***/ "jsonwebtoken":
-/*!*******************************!*\
-  !*** external "jsonwebtoken" ***!
-  \*******************************/
+/***/ 9344:
 /***/ ((module) => {
 
 module.exports = require("jsonwebtoken");
 
 /***/ }),
 
-/***/ "mongoose":
-/*!***************************!*\
-  !*** external "mongoose" ***!
-  \***************************/
+/***/ 1185:
 /***/ ((module) => {
 
 module.exports = require("mongoose");
 
 /***/ }),
 
-/***/ "./middleware/auth.js":
-/*!****************************!*\
-  !*** ./middleware/auth.js ***!
-  \****************************/
+/***/ 8458:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var jsonwebtoken__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jsonwebtoken */ \"jsonwebtoken\");\n/* harmony import */ var jsonwebtoken__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jsonwebtoken__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _models_userModel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../models/userModel */ \"./models/userModel.js\");\n\n\nconst auth = async (req, res)=>{\n    const token = req.headers.authorization;\n    if (!token) return res.status(400).json({\n        err: 'Invalid Authentication.'\n    });\n    const decoded = jsonwebtoken__WEBPACK_IMPORTED_MODULE_0___default().verify(token, \"su8W6Trd~%R8fyZGE,+_>>Kwld#j%rk<6xadsdassss[ue3Gv!%pwJB!{Kn]:Q9e-LhpwV4v-C,K:hSgv^(;<?RW3'ckMC2#~S5;aNN}KfWh\");\n    if (!decoded) return res.status(400).json({\n        err: 'Invalid Authentication.'\n    });\n    const user = await _models_userModel__WEBPACK_IMPORTED_MODULE_1__[\"default\"].findOne({\n        _id: decoded.id\n    });\n    return {\n        id: user._id,\n        role: user.role,\n        root: user.root\n    };\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (auth);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9taWRkbGV3YXJlL2F1dGguanMuanMiLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUE4QjtBQUNTO0FBR3ZDLEtBQUssQ0FBQ0UsSUFBSSxVQUFVQyxHQUFHLEVBQUVDLEdBQUcsR0FBSyxDQUFDO0lBQzlCLEtBQUssQ0FBQ0MsS0FBSyxHQUFHRixHQUFHLENBQUNHLE9BQU8sQ0FBQ0MsYUFBYTtJQUN2QyxFQUFFLEdBQUVGLEtBQUssRUFBRSxNQUFNLENBQUNELEdBQUcsQ0FBQ0ksTUFBTSxDQUFDLEdBQUcsRUFBRUMsSUFBSSxDQUFDLENBQUNDO1FBQUFBLEdBQUcsRUFBRSxDQUF5QjtJQUFBLENBQUM7SUFFdkUsS0FBSyxDQUFDQyxPQUFPLEdBQUdYLDBEQUFVLENBQUNLLEtBQUssRUFBRVEsOEdBQStCO0lBQ2pFLEVBQUUsR0FBRUYsT0FBTyxFQUFFLE1BQU0sQ0FBQ1AsR0FBRyxDQUFDSSxNQUFNLENBQUMsR0FBRyxFQUFFQyxJQUFJLENBQUMsQ0FBQ0M7UUFBQUEsR0FBRyxFQUFFLENBQXlCO0lBQUEsQ0FBQztJQUV6RSxLQUFLLENBQUNNLElBQUksR0FBRyxLQUFLLENBQUNmLGlFQUFhLENBQUMsQ0FBQ2lCO1FBQUFBLEdBQUcsRUFBRVAsT0FBTyxDQUFDUSxFQUFFO0lBQUEsQ0FBQztJQUVsRCxNQUFNLENBQUMsQ0FBQ0E7UUFBQUEsRUFBRSxFQUFFSCxJQUFJLENBQUNFLEdBQUc7UUFBRUUsSUFBSSxFQUFFSixJQUFJLENBQUNJLElBQUk7UUFBRUMsSUFBSSxFQUFFTCxJQUFJLENBQUNLLElBQUk7SUFBQSxDQUFDO0FBQzNELENBQUM7QUFHRCxpRUFBZW5CLElBQUkiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9ib3pvcmJvYl91el9vcmlnaW5hbC8uL21pZGRsZXdhcmUvYXV0aC5qcz8xYzljIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBqd3QgZnJvbSAnanNvbndlYnRva2VuJ1xuaW1wb3J0IFVzZXJzIGZyb20gJy4uL21vZGVscy91c2VyTW9kZWwnXG5cblxuY29uc3QgYXV0aCA9IGFzeW5jIChyZXEsIHJlcykgPT4ge1xuICAgIGNvbnN0IHRva2VuID0gcmVxLmhlYWRlcnMuYXV0aG9yaXphdGlvbjtcbiAgICBpZighdG9rZW4pIHJldHVybiByZXMuc3RhdHVzKDQwMCkuanNvbih7ZXJyOiAnSW52YWxpZCBBdXRoZW50aWNhdGlvbi4nfSlcblxuICAgIGNvbnN0IGRlY29kZWQgPSBqd3QudmVyaWZ5KHRva2VuLCBwcm9jZXNzLmVudi5BQ0NFU1NfVE9LRU5fU0VDUkVUKVxuICAgIGlmKCFkZWNvZGVkKSByZXR1cm4gcmVzLnN0YXR1cyg0MDApLmpzb24oe2VycjogJ0ludmFsaWQgQXV0aGVudGljYXRpb24uJ30pXG5cbiAgICBjb25zdCB1c2VyID0gYXdhaXQgVXNlcnMuZmluZE9uZSh7X2lkOiBkZWNvZGVkLmlkfSlcblxuICAgIHJldHVybiB7aWQ6IHVzZXIuX2lkLCByb2xlOiB1c2VyLnJvbGUsIHJvb3Q6IHVzZXIucm9vdH07XG59XG5cblxuZXhwb3J0IGRlZmF1bHQgYXV0aCJdLCJuYW1lcyI6WyJqd3QiLCJVc2VycyIsImF1dGgiLCJyZXEiLCJyZXMiLCJ0b2tlbiIsImhlYWRlcnMiLCJhdXRob3JpemF0aW9uIiwic3RhdHVzIiwianNvbiIsImVyciIsImRlY29kZWQiLCJ2ZXJpZnkiLCJwcm9jZXNzIiwiZW52IiwiQUNDRVNTX1RPS0VOX1NFQ1JFVCIsInVzZXIiLCJmaW5kT25lIiwiX2lkIiwiaWQiLCJyb2xlIiwicm9vdCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./middleware/auth.js\n");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils_connectDB__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4989);
+/* harmony import */ var _models_productModel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5842);
+/* harmony import */ var _middleware_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8930);
+/* eslint-disable import/no-anonymous-default-export */ 
 
-/***/ }),
 
-/***/ "./models/productModel.js":
-/*!********************************!*\
-  !*** ./models/productModel.js ***!
-  \********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(0,_utils_connectDB__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z)();
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (async (req, res)=>{
+    switch(req.method){
+        case "GET":
+            await getProducts(req, res);
+            break;
+        case "POST":
+            await createProduct(req, res);
+            break;
+    }
+});
+class APIfeatures {
+    constructor(query, queryString){
+        this.query = query;
+        this.queryString = queryString;
+    }
+    filtering() {
+        const queryObj = {
+            ...this.queryString
+        };
+        const excludeFields = [
+            "page",
+            "sort",
+            "limit"
+        ];
+        excludeFields.forEach((el)=>delete queryObj[el]
+        );
+        if (queryObj.category !== "all") this.query.find({
+            category: queryObj.category
+        });
+        if (queryObj.title !== "all") this.query.find({
+            title: {
+                $regex: queryObj.title
+            }
+        });
+        this.query.find();
+        return this;
+    }
+    sorting() {
+        if (this.queryString.sort) {
+            const sortBy = this.queryString.sort.split(",").join("");
+            this.query = this.query.sort(sortBy);
+        } else {
+            this.query = this.query.sort("-createdAt");
+        }
+        return this;
+    }
+}
+const getProducts = async (req, res)=>{
+    try {
+        if (process.env.DEMO_MODE === "true") {
+            const mockProducts = [
+                {
+                    _id: "614b14d28d6f5a0016a9a3b1",
+                    title: "NextGen Smart Watch",
+                    price: 199,
+                    description: "Elevate your daily routine with health tracking and seamless connectivity.",
+                    category: "electronics",
+                    images: [
+                        {
+                            url: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=800"
+                        }
+                    ],
+                    inStock: 15,
+                    sold: 120
+                },
+                {
+                    _id: "614b14d28d6f5a0016a9a3b2",
+                    title: "Premium Wireless Audio",
+                    price: 249,
+                    description: "Studio-quality sound delivered in a sleek, minimalist package.",
+                    category: "electronics",
+                    images: [
+                        {
+                            url: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=800"
+                        }
+                    ],
+                    inStock: 8,
+                    sold: 45
+                },
+                {
+                    _id: "614b14d28d6f5a0016a9a3b3",
+                    title: "Nomad Canvas Backpack",
+                    price: 120,
+                    description: "Durable design meets urban aesthetics for the modern explorer.",
+                    category: "fashion",
+                    images: [
+                        {
+                            url: "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&q=80&w=800"
+                        }
+                    ],
+                    inStock: 25,
+                    sold: 67
+                },
+                {
+                    _id: "614b14d28d6f5a0016a9a3b4",
+                    title: "Artisan Ceramic Lamp",
+                    price: 155,
+                    description: "Handcrafted warmth for your contemporary living space.",
+                    category: "interior",
+                    images: [
+                        {
+                            url: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&q=80&w=800"
+                        }
+                    ],
+                    inStock: 5,
+                    sold: 12
+                },
+                {
+                    _id: "614b14d28d6f5a0016a9a3b5",
+                    title: "Mechanical Desk Clock",
+                    price: 75,
+                    description: "Precision engineering meets vintage-inspired desktop design.",
+                    category: "interior",
+                    images: [
+                        {
+                            url: "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?auto=format&fit=crop&q=80&w=800"
+                        }
+                    ],
+                    inStock: 12,
+                    sold: 89
+                },
+                {
+                    _id: "614b14d28d6f5a0016a9a3b6",
+                    title: "Pure Linen Bedding Set",
+                    price: 210,
+                    description: "Breathable luxury for the ultimate resting experience.",
+                    category: "home",
+                    images: [
+                        {
+                            url: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=800"
+                        }
+                    ],
+                    inStock: 10,
+                    sold: 34
+                },
+                {
+                    _id: "614b14d28d6f5a0016a9a3b7",
+                    title: "Executive Fountain Pen",
+                    price: 45,
+                    description: "Timeless elegance for your signature moments.",
+                    category: "office",
+                    images: [
+                        {
+                            url: "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&q=80&w=800"
+                        }
+                    ],
+                    inStock: 30,
+                    sold: 156
+                },
+                {
+                    _id: "614b14d28d6f5a0016a9a3b8",
+                    title: "Minimalist Coffee Brewer",
+                    price: 135,
+                    description: "Extract the perfect flavor with our award-winning pour-over system.",
+                    category: "lifestyle",
+                    images: [
+                        {
+                            url: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800"
+                        }
+                    ],
+                    inStock: 18,
+                    sold: 210
+                }
+            ];
+            return res.json({
+                status: "success",
+                result: mockProducts.length,
+                products: mockProducts
+            });
+        }
+        const features = new APIfeatures(_models_productModel__WEBPACK_IMPORTED_MODULE_1__/* ["default"].find */ .Z.find(), req.query).filtering().sorting();
+        //   .paginating();
+        const products = await features.query;
+        res.json({
+            status: "success",
+            result: products.length,
+            products
+        });
+    } catch (err) {
+        return res.status(500).json({
+            err: err.message
+        });
+    }
+};
+const createProduct = async (req, res)=>{
+    try {
+        const result = await (0,_middleware_auth__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z)(req, res);
+        if (result.role !== "admin") return res.status(400).json({
+            err: "Authentication is not valid."
+        });
+        const { video , videoModule , book , sale , title , price , description , content , category , images , book_view ,  } = req.body;
+        if (!title || !price || !description || !content || category === "all" || images.length === 0) return res.status(400).json({
+            err: "Please add all the fields."
+        });
+        const newProduct = new _models_productModel__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z({
+            title: title.toLowerCase(),
+            price,
+            description,
+            content,
+            category,
+            images,
+            video,
+            videoModule,
+            book,
+            sale,
+            book_view
+        });
+        await newProduct.save();
+        res.json({
+            msg: "Success! Created a new product"
+        });
+    } catch (err) {
+        return res.status(500).json({
+            err: err.message
+        });
+    }
+};
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mongoose */ \"mongoose\");\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mongoose__WEBPACK_IMPORTED_MODULE_0__);\n\nconst productSchema = new (mongoose__WEBPACK_IMPORTED_MODULE_0___default().Schema)({\n    title: {\n        type: String,\n        required: true,\n        trim: true\n    },\n    sale: {\n        type: Number\n    },\n    video: {\n        type: Array\n    },\n    book: {\n        type: String\n    },\n    price: {\n        type: Number,\n        required: true,\n        trim: true\n    },\n    description: {\n        type: String,\n        required: true\n    },\n    content: {\n        type: String,\n        required: true\n    },\n    images: {\n        type: Array,\n        required: true\n    },\n    videoModule: {\n        type: Array\n    },\n    category: {\n        type: String,\n        required: true\n    },\n    checked: {\n        type: Boolean,\n        default: false\n    },\n    sold: {\n        type: Number,\n        default: 0\n    }\n}, {\n    timestamps: true\n});\nlet Dataset = (mongoose__WEBPACK_IMPORTED_MODULE_0___default().models.product) || mongoose__WEBPACK_IMPORTED_MODULE_0___default().model(\"product\", productSchema);\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Dataset);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9tb2RlbHMvcHJvZHVjdE1vZGVsLmpzLmpzIiwibWFwcGluZ3MiOiI7Ozs7OztBQUErQjtBQUMvQixLQUFLLENBQUNDLGFBQWEsR0FBRyxHQUFHLENBQUNELHdEQUFlLENBQ3ZDLENBQUM7SUFDQ0csS0FBSyxFQUFFLENBQUM7UUFDTkMsSUFBSSxFQUFFQyxNQUFNO1FBQ1pDLFFBQVEsRUFBRSxJQUFJO1FBQ2RDLElBQUksRUFBRSxJQUFJO0lBQ1osQ0FBQztJQUNEQyxJQUFJLEVBQUUsQ0FBQztRQUNMSixJQUFJLEVBQUVLLE1BQU07SUFDZCxDQUFDO0lBQ0RDLEtBQUssRUFBRSxDQUFDO1FBQ05OLElBQUksRUFBRU8sS0FBSztJQUNiLENBQUM7SUFDREMsSUFBSSxFQUFFLENBQUM7UUFDTFIsSUFBSSxFQUFFQyxNQUFNO0lBQ2QsQ0FBQztJQUNEUSxLQUFLLEVBQUUsQ0FBQztRQUNOVCxJQUFJLEVBQUVLLE1BQU07UUFDWkgsUUFBUSxFQUFFLElBQUk7UUFDZEMsSUFBSSxFQUFFLElBQUk7SUFDWixDQUFDO0lBQ0RPLFdBQVcsRUFBRSxDQUFDO1FBQ1pWLElBQUksRUFBRUMsTUFBTTtRQUNaQyxRQUFRLEVBQUUsSUFBSTtJQUNoQixDQUFDO0lBQ0RTLE9BQU8sRUFBRSxDQUFDO1FBQ1JYLElBQUksRUFBRUMsTUFBTTtRQUNaQyxRQUFRLEVBQUUsSUFBSTtJQUNoQixDQUFDO0lBQ0RVLE1BQU0sRUFBRSxDQUFDO1FBQ1BaLElBQUksRUFBRU8sS0FBSztRQUNYTCxRQUFRLEVBQUUsSUFBSTtJQUNoQixDQUFDO0lBQ0RXLFdBQVcsRUFBRSxDQUFDO1FBQ1piLElBQUksRUFBRU8sS0FBSztJQUNiLENBQUM7SUFDRE8sUUFBUSxFQUFFLENBQUM7UUFDVGQsSUFBSSxFQUFFQyxNQUFNO1FBQ1pDLFFBQVEsRUFBRSxJQUFJO0lBQ2hCLENBQUM7SUFDRGEsT0FBTyxFQUFFLENBQUM7UUFDUmYsSUFBSSxFQUFFZ0IsT0FBTztRQUNiQyxPQUFPLEVBQUUsS0FBSztJQUNoQixDQUFDO0lBQ0RDLElBQUksRUFBRSxDQUFDO1FBQ0xsQixJQUFJLEVBQUVLLE1BQU07UUFDWlksT0FBTyxFQUFFLENBQUM7SUFDWixDQUFDO0FBQ0gsQ0FBQyxFQUNELENBQUM7SUFDQ0UsVUFBVSxFQUFFLElBQUk7QUFDbEIsQ0FBQztBQUVILEdBQUcsQ0FBQ0MsT0FBTyxHQUNUeEIsZ0VBQXVCLElBQUlBLHFEQUFjLENBQUMsQ0FBUyxVQUFFQyxhQUFhO0FBQ3BFLGlFQUFldUIsT0FBTyxFQUFDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vYm96b3Jib2JfdXpfb3JpZ2luYWwvLi9tb2RlbHMvcHJvZHVjdE1vZGVsLmpzPzY2NTAiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IG1vbmdvb3NlIGZyb20gXCJtb25nb29zZVwiO1xuY29uc3QgcHJvZHVjdFNjaGVtYSA9IG5ldyBtb25nb29zZS5TY2hlbWEoXG4gIHtcbiAgICB0aXRsZToge1xuICAgICAgdHlwZTogU3RyaW5nLFxuICAgICAgcmVxdWlyZWQ6IHRydWUsXG4gICAgICB0cmltOiB0cnVlLFxuICAgIH0sXG4gICAgc2FsZToge1xuICAgICAgdHlwZTogTnVtYmVyLFxuICAgIH0sXG4gICAgdmlkZW86IHtcbiAgICAgIHR5cGU6IEFycmF5LFxuICAgIH0sXG4gICAgYm9vazoge1xuICAgICAgdHlwZTogU3RyaW5nLFxuICAgIH0sXG4gICAgcHJpY2U6IHtcbiAgICAgIHR5cGU6IE51bWJlcixcbiAgICAgIHJlcXVpcmVkOiB0cnVlLFxuICAgICAgdHJpbTogdHJ1ZSxcbiAgICB9LFxuICAgIGRlc2NyaXB0aW9uOiB7XG4gICAgICB0eXBlOiBTdHJpbmcsXG4gICAgICByZXF1aXJlZDogdHJ1ZSxcbiAgICB9LFxuICAgIGNvbnRlbnQ6IHtcbiAgICAgIHR5cGU6IFN0cmluZyxcbiAgICAgIHJlcXVpcmVkOiB0cnVlLFxuICAgIH0sXG4gICAgaW1hZ2VzOiB7XG4gICAgICB0eXBlOiBBcnJheSxcbiAgICAgIHJlcXVpcmVkOiB0cnVlLFxuICAgIH0sXG4gICAgdmlkZW9Nb2R1bGU6IHtcbiAgICAgIHR5cGU6IEFycmF5LFxuICAgIH0sXG4gICAgY2F0ZWdvcnk6IHtcbiAgICAgIHR5cGU6IFN0cmluZyxcbiAgICAgIHJlcXVpcmVkOiB0cnVlLFxuICAgIH0sXG4gICAgY2hlY2tlZDoge1xuICAgICAgdHlwZTogQm9vbGVhbixcbiAgICAgIGRlZmF1bHQ6IGZhbHNlLFxuICAgIH0sXG4gICAgc29sZDoge1xuICAgICAgdHlwZTogTnVtYmVyLFxuICAgICAgZGVmYXVsdDogMCxcbiAgICB9LFxuICB9LFxuICB7XG4gICAgdGltZXN0YW1wczogdHJ1ZSxcbiAgfVxuKTtcbmxldCBEYXRhc2V0ID1cbiAgbW9uZ29vc2UubW9kZWxzLnByb2R1Y3QgfHwgbW9uZ29vc2UubW9kZWwoXCJwcm9kdWN0XCIsIHByb2R1Y3RTY2hlbWEpO1xuZXhwb3J0IGRlZmF1bHQgRGF0YXNldDtcbiJdLCJuYW1lcyI6WyJtb25nb29zZSIsInByb2R1Y3RTY2hlbWEiLCJTY2hlbWEiLCJ0aXRsZSIsInR5cGUiLCJTdHJpbmciLCJyZXF1aXJlZCIsInRyaW0iLCJzYWxlIiwiTnVtYmVyIiwidmlkZW8iLCJBcnJheSIsImJvb2siLCJwcmljZSIsImRlc2NyaXB0aW9uIiwiY29udGVudCIsImltYWdlcyIsInZpZGVvTW9kdWxlIiwiY2F0ZWdvcnkiLCJjaGVja2VkIiwiQm9vbGVhbiIsImRlZmF1bHQiLCJzb2xkIiwidGltZXN0YW1wcyIsIkRhdGFzZXQiLCJtb2RlbHMiLCJwcm9kdWN0IiwibW9kZWwiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./models/productModel.js\n");
-
-/***/ }),
-
-/***/ "./models/userModel.js":
-/*!*****************************!*\
-  !*** ./models/userModel.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mongoose */ \"mongoose\");\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mongoose__WEBPACK_IMPORTED_MODULE_0__);\n\nconst userSchema = new (mongoose__WEBPACK_IMPORTED_MODULE_0___default().Schema)({\n    name: {\n        type: String,\n        required: true\n    },\n    email: {\n        type: String,\n        required: true,\n        unique: true\n    },\n    password: {\n        type: String,\n        required: true\n    },\n    role: {\n        type: String,\n        default: \"user\"\n    },\n    root: {\n        type: Boolean,\n        default: false\n    },\n    boxes: {\n        type: String,\n        default: \"\"\n    },\n    avatar: {\n        type: String,\n        default: \"https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png\"\n    }\n}, {\n    timestamps: true\n});\nlet Dataset = (mongoose__WEBPACK_IMPORTED_MODULE_0___default().models.user) || mongoose__WEBPACK_IMPORTED_MODULE_0___default().model(\"user\", userSchema);\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Dataset);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9tb2RlbHMvdXNlck1vZGVsLmpzLmpzIiwibWFwcGluZ3MiOiI7Ozs7OztBQUErQjtBQUMvQixLQUFLLENBQUNDLFVBQVUsR0FBRyxHQUFHLENBQUNELHdEQUFlLENBQ3BDLENBQUM7SUFDQ0csSUFBSSxFQUFFLENBQUM7UUFDTEMsSUFBSSxFQUFFQyxNQUFNO1FBQ1pDLFFBQVEsRUFBRSxJQUFJO0lBQ2hCLENBQUM7SUFDREMsS0FBSyxFQUFFLENBQUM7UUFDTkgsSUFBSSxFQUFFQyxNQUFNO1FBQ1pDLFFBQVEsRUFBRSxJQUFJO1FBQ2RFLE1BQU0sRUFBRSxJQUFJO0lBQ2QsQ0FBQztJQUNEQyxRQUFRLEVBQUUsQ0FBQztRQUNUTCxJQUFJLEVBQUVDLE1BQU07UUFDWkMsUUFBUSxFQUFFLElBQUk7SUFDaEIsQ0FBQztJQUNESSxJQUFJLEVBQUUsQ0FBQztRQUNMTixJQUFJLEVBQUVDLE1BQU07UUFDWk0sT0FBTyxFQUFFLENBQU07SUFDakIsQ0FBQztJQUNEQyxJQUFJLEVBQUUsQ0FBQztRQUNMUixJQUFJLEVBQUVTLE9BQU87UUFDYkYsT0FBTyxFQUFFLEtBQUs7SUFDaEIsQ0FBQztJQUNERyxLQUFLLEVBQUUsQ0FBQztRQUNOVixJQUFJLEVBQUVDLE1BQU07UUFDWk0sT0FBTyxFQUFFLENBQUU7SUFDYixDQUFDO0lBQ0RJLE1BQU0sRUFBRSxDQUFDO1FBQ1BYLElBQUksRUFBRUMsTUFBTTtRQUNaTSxPQUFPLEVBQ0wsQ0FBMkY7SUFDL0YsQ0FBQztBQUNILENBQUMsRUFDRCxDQUFDO0lBQ0NLLFVBQVUsRUFBRSxJQUFJO0FBQ2xCLENBQUM7QUFFSCxHQUFHLENBQUNDLE9BQU8sR0FBR2pCLDZEQUFvQixJQUFJQSxxREFBYyxDQUFDLENBQU0sT0FBRUMsVUFBVTtBQUN2RSxpRUFBZWdCLE9BQU8sRUFBQyIsInNvdXJjZXMiOlsid2VicGFjazovL2Jvem9yYm9iX3V6X29yaWdpbmFsLy4vbW9kZWxzL3VzZXJNb2RlbC5qcz85NjE3Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBtb25nb29zZSBmcm9tIFwibW9uZ29vc2VcIjtcbmNvbnN0IHVzZXJTY2hlbWEgPSBuZXcgbW9uZ29vc2UuU2NoZW1hKFxuICB7XG4gICAgbmFtZToge1xuICAgICAgdHlwZTogU3RyaW5nLFxuICAgICAgcmVxdWlyZWQ6IHRydWUsXG4gICAgfSxcbiAgICBlbWFpbDoge1xuICAgICAgdHlwZTogU3RyaW5nLFxuICAgICAgcmVxdWlyZWQ6IHRydWUsXG4gICAgICB1bmlxdWU6IHRydWUsXG4gICAgfSxcbiAgICBwYXNzd29yZDoge1xuICAgICAgdHlwZTogU3RyaW5nLFxuICAgICAgcmVxdWlyZWQ6IHRydWUsXG4gICAgfSxcbiAgICByb2xlOiB7XG4gICAgICB0eXBlOiBTdHJpbmcsXG4gICAgICBkZWZhdWx0OiBcInVzZXJcIixcbiAgICB9LFxuICAgIHJvb3Q6IHtcbiAgICAgIHR5cGU6IEJvb2xlYW4sXG4gICAgICBkZWZhdWx0OiBmYWxzZSxcbiAgICB9LFxuICAgIGJveGVzOiB7XG4gICAgICB0eXBlOiBTdHJpbmcsXG4gICAgICBkZWZhdWx0OiBcIlwiLFxuICAgIH0sXG4gICAgYXZhdGFyOiB7XG4gICAgICB0eXBlOiBTdHJpbmcsXG4gICAgICBkZWZhdWx0OlxuICAgICAgICBcImh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL2RldmF0Y2hhbm5lbC9pbWFnZS91cGxvYWQvdjE2MDI3NTI0MDIvYXZhdGFyL2F2YXRhcl9jdWdxNDAucG5nXCIsXG4gICAgfSxcbiAgfSxcbiAge1xuICAgIHRpbWVzdGFtcHM6IHRydWUsXG4gIH1cbik7XG5sZXQgRGF0YXNldCA9IG1vbmdvb3NlLm1vZGVscy51c2VyIHx8IG1vbmdvb3NlLm1vZGVsKFwidXNlclwiLCB1c2VyU2NoZW1hKTtcbmV4cG9ydCBkZWZhdWx0IERhdGFzZXQ7XG4iXSwibmFtZXMiOlsibW9uZ29vc2UiLCJ1c2VyU2NoZW1hIiwiU2NoZW1hIiwibmFtZSIsInR5cGUiLCJTdHJpbmciLCJyZXF1aXJlZCIsImVtYWlsIiwidW5pcXVlIiwicGFzc3dvcmQiLCJyb2xlIiwiZGVmYXVsdCIsInJvb3QiLCJCb29sZWFuIiwiYm94ZXMiLCJhdmF0YXIiLCJ0aW1lc3RhbXBzIiwiRGF0YXNldCIsIm1vZGVscyIsInVzZXIiLCJtb2RlbCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./models/userModel.js\n");
-
-/***/ }),
-
-/***/ "./pages/api/product/index.js":
-/*!************************************!*\
-  !*** ./pages/api/product/index.js ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _utils_connectDB__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../utils/connectDB */ \"./utils/connectDB.js\");\n/* harmony import */ var _models_productModel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../models/productModel */ \"./models/productModel.js\");\n/* harmony import */ var _middleware_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../middleware/auth */ \"./middleware/auth.js\");\n/* eslint-disable import/no-anonymous-default-export */ \n\n\n(0,_utils_connectDB__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (async (req, res)=>{\n    switch(req.method){\n        case \"GET\":\n            await getProducts(req, res);\n            break;\n        case \"POST\":\n            await createProduct(req, res);\n            break;\n    }\n});\nclass APIfeatures {\n    constructor(query, queryString){\n        this.query = query;\n        this.queryString = queryString;\n    }\n    filtering() {\n        const queryObj = {\n            ...this.queryString\n        };\n        const excludeFields = [\n            \"page\",\n            \"sort\",\n            \"limit\"\n        ];\n        excludeFields.forEach((el)=>delete queryObj[el]\n        );\n        if (queryObj.category !== \"all\") this.query.find({\n            category: queryObj.category\n        });\n        if (queryObj.title !== \"all\") this.query.find({\n            title: {\n                $regex: queryObj.title\n            }\n        });\n        this.query.find();\n        return this;\n    }\n    sorting() {\n        if (this.queryString.sort) {\n            const sortBy = this.queryString.sort.split(\",\").join(\"\");\n            this.query = this.query.sort(sortBy);\n        } else {\n            this.query = this.query.sort(\"-createdAt\");\n        }\n        return this;\n    }\n}\nconst getProducts = async (req, res)=>{\n    try {\n        const features = new APIfeatures(_models_productModel__WEBPACK_IMPORTED_MODULE_1__[\"default\"].find(), req.query).filtering().sorting();\n        //   .paginating();\n        const products = await features.query;\n        res.json({\n            status: \"success\",\n            result: products.length,\n            products\n        });\n    } catch (err) {\n        return res.status(500).json({\n            err: err.message\n        });\n    }\n};\nconst createProduct = async (req, res)=>{\n    try {\n        const result = await (0,_middleware_auth__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(req, res);\n        if (result.role !== \"admin\") return res.status(400).json({\n            err: \"Authentication is not valid.\"\n        });\n        const { video , videoModule , book , sale , title , price , description , content , category , images , book_view ,  } = req.body;\n        if (!title || !price || !description || !content || category === \"all\" || images.length === 0) return res.status(400).json({\n            err: \"Please add all the fields.\"\n        });\n        const newProduct = new _models_productModel__WEBPACK_IMPORTED_MODULE_1__[\"default\"]({\n            title: title.toLowerCase(),\n            price,\n            description,\n            content,\n            category,\n            images,\n            video,\n            videoModule,\n            book,\n            sale,\n            book_view\n        });\n        await newProduct.save();\n        res.json({\n            msg: \"Success! Created a new product\"\n        });\n    } catch (err) {\n        return res.status(500).json({\n            err: err.message\n        });\n    }\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9hcGkvcHJvZHVjdC9pbmRleC5qcy5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQUEsRUFBdUQsc0RBQ1A7QUFDRztBQUNSO0FBRTNDQSw0REFBUztBQUVULGlFQUFNLE9BQWdCRyxHQUFHLEVBQUVDLEdBQUcsR0FBSyxDQUFDO0lBQ2xDLE1BQU0sQ0FBRUQsR0FBRyxDQUFDRSxNQUFNO1FBQ2hCLElBQUksQ0FBQyxDQUFLO1lBQ1IsS0FBSyxDQUFDQyxXQUFXLENBQUNILEdBQUcsRUFBRUMsR0FBRztZQUMxQixLQUFLO1FBQ1AsSUFBSSxDQUFDLENBQU07WUFDVCxLQUFLLENBQUNHLGFBQWEsQ0FBQ0osR0FBRyxFQUFFQyxHQUFHO1lBQzVCLEtBQUs7O0FBRVgsQ0FBQztNQUVLSSxXQUFXO2dCQUNIQyxLQUFLLEVBQUVDLFdBQVcsQ0FBRSxDQUFDO1FBQy9CLElBQUksQ0FBQ0QsS0FBSyxHQUFHQSxLQUFLO1FBQ2xCLElBQUksQ0FBQ0MsV0FBVyxHQUFHQSxXQUFXO0lBQ2hDLENBQUM7SUFDREMsU0FBUyxHQUFHLENBQUM7UUFDWCxLQUFLLENBQUNDLFFBQVEsR0FBRyxDQUFDO2VBQUksSUFBSSxDQUFDRixXQUFXO1FBQUMsQ0FBQztRQUV4QyxLQUFLLENBQUNHLGFBQWEsR0FBRyxDQUFDO1lBQUEsQ0FBTTtZQUFFLENBQU07WUFBRSxDQUFPO1FBQUEsQ0FBQztRQUMvQ0EsYUFBYSxDQUFDQyxPQUFPLEVBQUVDLEVBQUUsR0FBSyxNQUFNLENBQUNILFFBQVEsQ0FBQ0csRUFBRTs7UUFFaEQsRUFBRSxFQUFFSCxRQUFRLENBQUNJLFFBQVEsS0FBSyxDQUFLLE1BQzdCLElBQUksQ0FBQ1AsS0FBSyxDQUFDUSxJQUFJLENBQUMsQ0FBQztZQUFDRCxRQUFRLEVBQUVKLFFBQVEsQ0FBQ0ksUUFBUTtRQUFDLENBQUM7UUFDakQsRUFBRSxFQUFFSixRQUFRLENBQUNNLEtBQUssS0FBSyxDQUFLLE1BQzFCLElBQUksQ0FBQ1QsS0FBSyxDQUFDUSxJQUFJLENBQUMsQ0FBQztZQUFDQyxLQUFLLEVBQUUsQ0FBQztnQkFBQ0MsTUFBTSxFQUFFUCxRQUFRLENBQUNNLEtBQUs7WUFBQyxDQUFDO1FBQUMsQ0FBQztRQUV2RCxJQUFJLENBQUNULEtBQUssQ0FBQ1EsSUFBSTtRQUNmLE1BQU0sQ0FBQyxJQUFJO0lBQ2IsQ0FBQztJQUVERyxPQUFPLEdBQUcsQ0FBQztRQUNULEVBQUUsRUFBRSxJQUFJLENBQUNWLFdBQVcsQ0FBQ1csSUFBSSxFQUFFLENBQUM7WUFDMUIsS0FBSyxDQUFDQyxNQUFNLEdBQUcsSUFBSSxDQUFDWixXQUFXLENBQUNXLElBQUksQ0FBQ0UsS0FBSyxDQUFDLENBQUcsSUFBRUMsSUFBSSxDQUFDLENBQUU7WUFDdkQsSUFBSSxDQUFDZixLQUFLLEdBQUcsSUFBSSxDQUFDQSxLQUFLLENBQUNZLElBQUksQ0FBQ0MsTUFBTTtRQUNyQyxDQUFDLE1BQU0sQ0FBQztZQUNOLElBQUksQ0FBQ2IsS0FBSyxHQUFHLElBQUksQ0FBQ0EsS0FBSyxDQUFDWSxJQUFJLENBQUMsQ0FBWTtRQUMzQyxDQUFDO1FBRUQsTUFBTSxDQUFDLElBQUk7SUFDYixDQUFDOztBQVdILEtBQUssQ0FBQ2YsV0FBVyxVQUFVSCxHQUFHLEVBQUVDLEdBQUcsR0FBSyxDQUFDO0lBQ3ZDLEdBQUcsQ0FBQyxDQUFDO1FBQ0gsS0FBSyxDQUFDcUIsUUFBUSxHQUFHLEdBQUcsQ0FBQ2pCLFdBQVcsQ0FBQ1AsaUVBQWEsSUFBSUUsR0FBRyxDQUFDTSxLQUFLLEVBQ3hERSxTQUFTLEdBQ1RTLE9BQU87UUFDVixFQUFtQjtRQUVuQixLQUFLLENBQUNNLFFBQVEsR0FBRyxLQUFLLENBQUNELFFBQVEsQ0FBQ2hCLEtBQUs7UUFFckNMLEdBQUcsQ0FBQ3VCLElBQUksQ0FBQyxDQUFDO1lBQ1JDLE1BQU0sRUFBRSxDQUFTO1lBQ2pCQyxNQUFNLEVBQUVILFFBQVEsQ0FBQ0ksTUFBTTtZQUN2QkosUUFBUTtRQUNWLENBQUM7SUFDSCxDQUFDLENBQUMsS0FBSyxFQUFFSyxHQUFHLEVBQUUsQ0FBQztRQUNiLE1BQU0sQ0FBQzNCLEdBQUcsQ0FBQ3dCLE1BQU0sQ0FBQyxHQUFHLEVBQUVELElBQUksQ0FBQyxDQUFDO1lBQUNJLEdBQUcsRUFBRUEsR0FBRyxDQUFDQyxPQUFPO1FBQUMsQ0FBQztJQUNsRCxDQUFDO0FBQ0gsQ0FBQztBQUVELEtBQUssQ0FBQ3pCLGFBQWEsVUFBVUosR0FBRyxFQUFFQyxHQUFHLEdBQUssQ0FBQztJQUN6QyxHQUFHLENBQUMsQ0FBQztRQUNILEtBQUssQ0FBQ3lCLE1BQU0sR0FBRyxLQUFLLENBQUMzQiw0REFBSSxDQUFDQyxHQUFHLEVBQUVDLEdBQUc7UUFDbEMsRUFBRSxFQUFFeUIsTUFBTSxDQUFDSSxJQUFJLEtBQUssQ0FBTyxRQUN6QixNQUFNLENBQUM3QixHQUFHLENBQUN3QixNQUFNLENBQUMsR0FBRyxFQUFFRCxJQUFJLENBQUMsQ0FBQztZQUFDSSxHQUFHLEVBQUUsQ0FBOEI7UUFBQyxDQUFDO1FBRXJFLEtBQUssQ0FBQyxDQUFDLENBQ0xHLEtBQUssR0FDTEMsV0FBVyxHQUNYQyxJQUFJLEdBQ0pDLElBQUksR0FDSm5CLEtBQUssR0FDTG9CLEtBQUssR0FDTEMsV0FBVyxHQUNYQyxPQUFPLEdBQ1B4QixRQUFRLEdBQ1J5QixNQUFNLEdBQ05DLFNBQVMsSUFDWCxDQUFDLEdBQUd2QyxHQUFHLENBQUN3QyxJQUFJO1FBQ1osRUFBRSxHQUNDekIsS0FBSyxLQUNMb0IsS0FBSyxLQUNMQyxXQUFXLEtBQ1hDLE9BQU8sSUFDUnhCLFFBQVEsS0FBSyxDQUFLLFFBQ2xCeUIsTUFBTSxDQUFDWCxNQUFNLEtBQUssQ0FBQyxFQUVuQixNQUFNLENBQUMxQixHQUFHLENBQUN3QixNQUFNLENBQUMsR0FBRyxFQUFFRCxJQUFJLENBQUMsQ0FBQztZQUFDSSxHQUFHLEVBQUUsQ0FBNEI7UUFBQyxDQUFDO1FBRW5FLEtBQUssQ0FBQ2EsVUFBVSxHQUFHLEdBQUcsQ0FBQzNDLDREQUFRLENBQUMsQ0FBQztZQUMvQmlCLEtBQUssRUFBRUEsS0FBSyxDQUFDMkIsV0FBVztZQUN4QlAsS0FBSztZQUNMQyxXQUFXO1lBQ1hDLE9BQU87WUFDUHhCLFFBQVE7WUFDUnlCLE1BQU07WUFDTlAsS0FBSztZQUNMQyxXQUFXO1lBQ1hDLElBQUk7WUFDSkMsSUFBSTtZQUNKSyxTQUFTO1FBQ1gsQ0FBQztRQUVELEtBQUssQ0FBQ0UsVUFBVSxDQUFDRSxJQUFJO1FBRXJCMUMsR0FBRyxDQUFDdUIsSUFBSSxDQUFDLENBQUM7WUFBQ29CLEdBQUcsRUFBRSxDQUFnQztRQUFDLENBQUM7SUFDcEQsQ0FBQyxDQUFDLEtBQUssRUFBRWhCLEdBQUcsRUFBRSxDQUFDO1FBQ2IsTUFBTSxDQUFDM0IsR0FBRyxDQUFDd0IsTUFBTSxDQUFDLEdBQUcsRUFBRUQsSUFBSSxDQUFDLENBQUM7WUFBQ0ksR0FBRyxFQUFFQSxHQUFHLENBQUNDLE9BQU87UUFBQyxDQUFDO0lBQ2xELENBQUM7QUFDSCxDQUFDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vYm96b3Jib2JfdXpfb3JpZ2luYWwvLi9wYWdlcy9hcGkvcHJvZHVjdC9pbmRleC5qcz9lY2ZiIl0sInNvdXJjZXNDb250ZW50IjpbIi8qIGVzbGludC1kaXNhYmxlIGltcG9ydC9uby1hbm9ueW1vdXMtZGVmYXVsdC1leHBvcnQgKi9cbmltcG9ydCBjb25uZWN0REIgZnJvbSBcIi4uLy4uLy4uL3V0aWxzL2Nvbm5lY3REQlwiO1xuaW1wb3J0IFByb2R1Y3RzIGZyb20gXCIuLi8uLi8uLi9tb2RlbHMvcHJvZHVjdE1vZGVsXCI7XG5pbXBvcnQgYXV0aCBmcm9tIFwiLi4vLi4vLi4vbWlkZGxld2FyZS9hdXRoXCI7XG5cbmNvbm5lY3REQigpO1xuXG5leHBvcnQgZGVmYXVsdCBhc3luYyAocmVxLCByZXMpID0+IHtcbiAgc3dpdGNoIChyZXEubWV0aG9kKSB7XG4gICAgY2FzZSBcIkdFVFwiOlxuICAgICAgYXdhaXQgZ2V0UHJvZHVjdHMocmVxLCByZXMpO1xuICAgICAgYnJlYWs7XG4gICAgY2FzZSBcIlBPU1RcIjpcbiAgICAgIGF3YWl0IGNyZWF0ZVByb2R1Y3QocmVxLCByZXMpO1xuICAgICAgYnJlYWs7XG4gIH1cbn07XG5cbmNsYXNzIEFQSWZlYXR1cmVzIHtcbiAgY29uc3RydWN0b3IocXVlcnksIHF1ZXJ5U3RyaW5nKSB7XG4gICAgdGhpcy5xdWVyeSA9IHF1ZXJ5O1xuICAgIHRoaXMucXVlcnlTdHJpbmcgPSBxdWVyeVN0cmluZztcbiAgfVxuICBmaWx0ZXJpbmcoKSB7XG4gICAgY29uc3QgcXVlcnlPYmogPSB7IC4uLnRoaXMucXVlcnlTdHJpbmcgfTtcblxuICAgIGNvbnN0IGV4Y2x1ZGVGaWVsZHMgPSBbXCJwYWdlXCIsIFwic29ydFwiLCBcImxpbWl0XCJdO1xuICAgIGV4Y2x1ZGVGaWVsZHMuZm9yRWFjaCgoZWwpID0+IGRlbGV0ZSBxdWVyeU9ialtlbF0pO1xuXG4gICAgaWYgKHF1ZXJ5T2JqLmNhdGVnb3J5ICE9PSBcImFsbFwiKVxuICAgICAgdGhpcy5xdWVyeS5maW5kKHsgY2F0ZWdvcnk6IHF1ZXJ5T2JqLmNhdGVnb3J5IH0pO1xuICAgIGlmIChxdWVyeU9iai50aXRsZSAhPT0gXCJhbGxcIilcbiAgICAgIHRoaXMucXVlcnkuZmluZCh7IHRpdGxlOiB7ICRyZWdleDogcXVlcnlPYmoudGl0bGUgfSB9KTtcblxuICAgIHRoaXMucXVlcnkuZmluZCgpO1xuICAgIHJldHVybiB0aGlzO1xuICB9XG5cbiAgc29ydGluZygpIHtcbiAgICBpZiAodGhpcy5xdWVyeVN0cmluZy5zb3J0KSB7XG4gICAgICBjb25zdCBzb3J0QnkgPSB0aGlzLnF1ZXJ5U3RyaW5nLnNvcnQuc3BsaXQoXCIsXCIpLmpvaW4oXCJcIik7XG4gICAgICB0aGlzLnF1ZXJ5ID0gdGhpcy5xdWVyeS5zb3J0KHNvcnRCeSk7XG4gICAgfSBlbHNlIHtcbiAgICAgIHRoaXMucXVlcnkgPSB0aGlzLnF1ZXJ5LnNvcnQoXCItY3JlYXRlZEF0XCIpO1xuICAgIH1cblxuICAgIHJldHVybiB0aGlzO1xuICB9XG5cbiAgLy8gcGFnaW5hdGluZygpe1xuICAvLyAgICAgY29uc3QgcGFnZSA9IHRoaXMucXVlcnlTdHJpbmcucGFnZSAqIDEgfHwgMVxuICAvLyAgICAgY29uc3QgbGltaXQgPSB0aGlzLnF1ZXJ5U3RyaW5nLmxpbWl0ICogMSB8fCAyMFxuICAvLyAgICAgY29uc3Qgc2tpcCA9IChwYWdlIC0gMSkgKiBsaW1pdDtcbiAgLy8gICAgIHRoaXMucXVlcnkgPSB0aGlzLnF1ZXJ5LnNraXAoc2tpcCkubGltaXQobGltaXQpXG4gIC8vICAgICByZXR1cm4gdGhpcztcbiAgLy8gfVxufVxuXG5jb25zdCBnZXRQcm9kdWN0cyA9IGFzeW5jIChyZXEsIHJlcykgPT4ge1xuICB0cnkge1xuICAgIGNvbnN0IGZlYXR1cmVzID0gbmV3IEFQSWZlYXR1cmVzKFByb2R1Y3RzLmZpbmQoKSwgcmVxLnF1ZXJ5KVxuICAgICAgLmZpbHRlcmluZygpXG4gICAgICAuc29ydGluZygpO1xuICAgIC8vICAgLnBhZ2luYXRpbmcoKTtcblxuICAgIGNvbnN0IHByb2R1Y3RzID0gYXdhaXQgZmVhdHVyZXMucXVlcnk7XG5cbiAgICByZXMuanNvbih7XG4gICAgICBzdGF0dXM6IFwic3VjY2Vzc1wiLFxuICAgICAgcmVzdWx0OiBwcm9kdWN0cy5sZW5ndGgsXG4gICAgICBwcm9kdWN0cyxcbiAgICB9KTtcbiAgfSBjYXRjaCAoZXJyKSB7XG4gICAgcmV0dXJuIHJlcy5zdGF0dXMoNTAwKS5qc29uKHsgZXJyOiBlcnIubWVzc2FnZSB9KTtcbiAgfVxufTtcblxuY29uc3QgY3JlYXRlUHJvZHVjdCA9IGFzeW5jIChyZXEsIHJlcykgPT4ge1xuICB0cnkge1xuICAgIGNvbnN0IHJlc3VsdCA9IGF3YWl0IGF1dGgocmVxLCByZXMpO1xuICAgIGlmIChyZXN1bHQucm9sZSAhPT0gXCJhZG1pblwiKVxuICAgICAgcmV0dXJuIHJlcy5zdGF0dXMoNDAwKS5qc29uKHsgZXJyOiBcIkF1dGhlbnRpY2F0aW9uIGlzIG5vdCB2YWxpZC5cIiB9KTtcblxuICAgIGNvbnN0IHtcbiAgICAgIHZpZGVvLFxuICAgICAgdmlkZW9Nb2R1bGUsXG4gICAgICBib29rLFxuICAgICAgc2FsZSxcbiAgICAgIHRpdGxlLFxuICAgICAgcHJpY2UsXG4gICAgICBkZXNjcmlwdGlvbixcbiAgICAgIGNvbnRlbnQsXG4gICAgICBjYXRlZ29yeSxcbiAgICAgIGltYWdlcyxcbiAgICAgIGJvb2tfdmlldyxcbiAgICB9ID0gcmVxLmJvZHk7XG4gICAgaWYgKFxuICAgICAgIXRpdGxlIHx8XG4gICAgICAhcHJpY2UgfHxcbiAgICAgICFkZXNjcmlwdGlvbiB8fFxuICAgICAgIWNvbnRlbnQgfHxcbiAgICAgIGNhdGVnb3J5ID09PSBcImFsbFwiIHx8XG4gICAgICBpbWFnZXMubGVuZ3RoID09PSAwXG4gICAgKVxuICAgICAgcmV0dXJuIHJlcy5zdGF0dXMoNDAwKS5qc29uKHsgZXJyOiBcIlBsZWFzZSBhZGQgYWxsIHRoZSBmaWVsZHMuXCIgfSk7XG5cbiAgICBjb25zdCBuZXdQcm9kdWN0ID0gbmV3IFByb2R1Y3RzKHtcbiAgICAgIHRpdGxlOiB0aXRsZS50b0xvd2VyQ2FzZSgpLFxuICAgICAgcHJpY2UsXG4gICAgICBkZXNjcmlwdGlvbixcbiAgICAgIGNvbnRlbnQsXG4gICAgICBjYXRlZ29yeSxcbiAgICAgIGltYWdlcyxcbiAgICAgIHZpZGVvLFxuICAgICAgdmlkZW9Nb2R1bGUsXG4gICAgICBib29rLFxuICAgICAgc2FsZSxcbiAgICAgIGJvb2tfdmlldyxcbiAgICB9KTtcblxuICAgIGF3YWl0IG5ld1Byb2R1Y3Quc2F2ZSgpO1xuXG4gICAgcmVzLmpzb24oeyBtc2c6IFwiU3VjY2VzcyEgQ3JlYXRlZCBhIG5ldyBwcm9kdWN0XCIgfSk7XG4gIH0gY2F0Y2ggKGVycikge1xuICAgIHJldHVybiByZXMuc3RhdHVzKDUwMCkuanNvbih7IGVycjogZXJyLm1lc3NhZ2UgfSk7XG4gIH1cbn07XG4iXSwibmFtZXMiOlsiY29ubmVjdERCIiwiUHJvZHVjdHMiLCJhdXRoIiwicmVxIiwicmVzIiwibWV0aG9kIiwiZ2V0UHJvZHVjdHMiLCJjcmVhdGVQcm9kdWN0IiwiQVBJZmVhdHVyZXMiLCJxdWVyeSIsInF1ZXJ5U3RyaW5nIiwiZmlsdGVyaW5nIiwicXVlcnlPYmoiLCJleGNsdWRlRmllbGRzIiwiZm9yRWFjaCIsImVsIiwiY2F0ZWdvcnkiLCJmaW5kIiwidGl0bGUiLCIkcmVnZXgiLCJzb3J0aW5nIiwic29ydCIsInNvcnRCeSIsInNwbGl0Iiwiam9pbiIsImZlYXR1cmVzIiwicHJvZHVjdHMiLCJqc29uIiwic3RhdHVzIiwicmVzdWx0IiwibGVuZ3RoIiwiZXJyIiwibWVzc2FnZSIsInJvbGUiLCJ2aWRlbyIsInZpZGVvTW9kdWxlIiwiYm9vayIsInNhbGUiLCJwcmljZSIsImRlc2NyaXB0aW9uIiwiY29udGVudCIsImltYWdlcyIsImJvb2tfdmlldyIsImJvZHkiLCJuZXdQcm9kdWN0IiwidG9Mb3dlckNhc2UiLCJzYXZlIiwibXNnIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./pages/api/product/index.js\n");
-
-/***/ }),
-
-/***/ "./utils/connectDB.js":
-/*!****************************!*\
-  !*** ./utils/connectDB.js ***!
-  \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mongoose */ \"mongoose\");\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mongoose__WEBPACK_IMPORTED_MODULE_0__);\n\nconst connectDB = ()=>{\n    if ((mongoose__WEBPACK_IMPORTED_MODULE_0___default().connections[0].readyState)) {\n        console.log('Already connected.');\n        return;\n    }\n    mongoose__WEBPACK_IMPORTED_MODULE_0___default().connect(\"mongodb+srv://next123:next123@cluster0.wn8mt.mongodb.net/?retryWrites=true&w=majority\", {\n        useCreateIndex: true,\n        useFindAndModify: false,\n        useNewUrlParser: true,\n        useUnifiedTopology: true\n    }, (err)=>{\n        if (err) throw err;\n        console.log('Connected to mongodb.');\n    });\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (connectDB);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi91dGlscy9jb25uZWN0REIuanMuanMiLCJtYXBwaW5ncyI6Ijs7Ozs7O0FBQStCO0FBRS9CLEtBQUssQ0FBQ0MsU0FBUyxPQUFTLENBQUM7SUFDckIsRUFBRSxFQUFDRCwyRUFBa0MsRUFBQyxDQUFDO1FBQ25DSSxPQUFPLENBQUNDLEdBQUcsQ0FBQyxDQUFvQjtRQUNoQyxNQUFNO0lBQ1YsQ0FBQztJQUNETCx1REFBZ0IsQ0FBQ08sdUZBQXVCLEVBQUUsQ0FBQztRQUN2Q0csY0FBYyxFQUFFLElBQUk7UUFDcEJDLGdCQUFnQixFQUFFLEtBQUs7UUFDdkJDLGVBQWUsRUFBRSxJQUFJO1FBQ3JCQyxrQkFBa0IsRUFBRSxJQUFJO0lBQzVCLENBQUMsR0FBRUMsR0FBRyxHQUFJLENBQUM7UUFDUCxFQUFFLEVBQUNBLEdBQUcsRUFBRSxLQUFLLENBQUNBLEdBQUc7UUFDakJWLE9BQU8sQ0FBQ0MsR0FBRyxDQUFDLENBQXVCO0lBQ3ZDLENBQUM7QUFDTCxDQUFDO0FBR0QsaUVBQWVKLFNBQVMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9ib3pvcmJvYl91el9vcmlnaW5hbC8uL3V0aWxzL2Nvbm5lY3REQi5qcz9jNjE3Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBtb25nb29zZSBmcm9tICdtb25nb29zZSdcblxuY29uc3QgY29ubmVjdERCID0gKCkgPT4ge1xuICAgIGlmKG1vbmdvb3NlLmNvbm5lY3Rpb25zWzBdLnJlYWR5U3RhdGUpe1xuICAgICAgICBjb25zb2xlLmxvZygnQWxyZWFkeSBjb25uZWN0ZWQuJylcbiAgICAgICAgcmV0dXJuO1xuICAgIH1cbiAgICBtb25nb29zZS5jb25uZWN0KHByb2Nlc3MuZW52Lk1PTkdPREJfVVJMLCB7XG4gICAgICAgIHVzZUNyZWF0ZUluZGV4OiB0cnVlLFxuICAgICAgICB1c2VGaW5kQW5kTW9kaWZ5OiBmYWxzZSxcbiAgICAgICAgdXNlTmV3VXJsUGFyc2VyOiB0cnVlLFxuICAgICAgICB1c2VVbmlmaWVkVG9wb2xvZ3k6IHRydWVcbiAgICB9LCBlcnIgPT4ge1xuICAgICAgICBpZihlcnIpIHRocm93IGVycjtcbiAgICAgICAgY29uc29sZS5sb2coJ0Nvbm5lY3RlZCB0byBtb25nb2RiLicpXG4gICAgfSlcbn1cblxuXG5leHBvcnQgZGVmYXVsdCBjb25uZWN0REIiXSwibmFtZXMiOlsibW9uZ29vc2UiLCJjb25uZWN0REIiLCJjb25uZWN0aW9ucyIsInJlYWR5U3RhdGUiLCJjb25zb2xlIiwibG9nIiwiY29ubmVjdCIsInByb2Nlc3MiLCJlbnYiLCJNT05HT0RCX1VSTCIsInVzZUNyZWF0ZUluZGV4IiwidXNlRmluZEFuZE1vZGlmeSIsInVzZU5ld1VybFBhcnNlciIsInVzZVVuaWZpZWRUb3BvbG9neSIsImVyciJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./utils/connectDB.js\n");
 
 /***/ })
 
@@ -90,7 +261,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 var __webpack_require__ = require("../../webpack-api-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__("./pages/api/product/index.js"));
+var __webpack_exports__ = __webpack_require__.X(0, [5266,4592], () => (__webpack_exec__(8458)));
 module.exports = __webpack_exports__;
 
 })();

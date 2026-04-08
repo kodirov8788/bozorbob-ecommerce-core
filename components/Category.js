@@ -18,21 +18,10 @@ const Category = () => {
   const t = locale === "en" ? en : uz;
   const [status, setStatus] = useState(false);
   const [categoryNames, setCategoryName] = useState("");
-  // const [categoryId, setCategoryId] = useState(null);
   useEffect(() => {
-    locale === "en"
-      ? setCategoryName("Category")
-      : setCategoryName("kategoriyalar")
-  }, [locale]);
-  // const click = () => {
-  //   filterSearch({ router, category: null });
-  //   router.push({ pathname: '/' });
-  // };
-  let x = "? category ="
-  // const sensor = () => {
-  //   if (!asPath.includes('/?category') || asPath !== "/" || asPath !== "/?category=" || asPath !== "/?search=all&category")
-  //     router.push({ pathname: '/' });
-  // };
+    setCategoryName(t.all);
+  }, [locale, t.all]);
+
   return (
     <>
       <div
@@ -46,8 +35,8 @@ const Category = () => {
             + filterSearch({ router, category: null })}
             onMouseEnter={() => setStatus(true)}
             onMouseLeave={() => setStatus(false)}>
-            <p>All</p>
-            <div className={`${categoryName === "Category" || categoryName === "kategoriyalar" ? "signal" : ""}`}></div>
+            <p>{t.all}</p>
+            <div className={`${categoryName === t.Categories || categoryName === t.category ? "signal" : ""}`}></div>
           </li>
 
           {categories.map((item) => (

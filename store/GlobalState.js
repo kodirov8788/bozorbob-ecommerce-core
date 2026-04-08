@@ -41,12 +41,12 @@ export const DataProvider = ({ children }) => {
         dispatch({
           type: "CATEGORYNAME",
           payload:
-            "Category"
+            "Categories",
         }) :
         dispatch({
           type: "CATEGORYNAME",
           payload:
-            "kategoriyalar",
+            "Kategoriyalar",
         })
   }, [locale, homePathName, categoryName, categoryId]);
 

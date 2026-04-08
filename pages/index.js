@@ -108,7 +108,7 @@ const Home = (props) => {
         deleteArr.push({
           data: "",
           id: product._id,
-          title: "Delete all selected products?",
+          title: t.delete_all_msg,
           type: "DELETE_PRODUCT",
         });
       }
@@ -125,10 +125,10 @@ const Home = (props) => {
   return (
     <div className="home__page">
       <Head>
-        <title>Home Page</title>
+        <title>{t.home_page}</title>
       </Head>
       {
-        isSearchClick.isSearchClick !== true && <Banner />
+        isSearchClick.isSearchClick !== true && <Banner t={t} />
       }
 
       {auth.user && auth.user.role === "admin" && (
@@ -152,7 +152,7 @@ const Home = (props) => {
             data-target="#exampleModal"
             onClick={handleDeleteAll}
           >
-            DELETE ALL
+            {t.delete_all}
           </button>
         </div>
       )}
@@ -160,7 +160,7 @@ const Home = (props) => {
         SearchClick !== true && <MediaCategory />
       }
       <div className="price_option">
-        <Filter />
+        <Filter t={t} />
       </div>
       {/* {shirinliklar.length !== 0 ? (
         <div className="product__slick">
@@ -196,7 +196,7 @@ const Home = (props) => {
       )} */}
       <div className="products">
         {products.length === 0 ? (
-          <h2>No Products</h2>
+          <h2>{t.no_products}</h2>
         ) : (
           products.map((product, index) => (
             <ProductItem
